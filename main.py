@@ -1,4 +1,5 @@
 from flask import render_template, request, redirect, url_for, flash
+from markupsafe import Markup
 from config import app, db, bcrypt
 from models import Products, User, Cart
 from blueprints.admin.source import admin
@@ -222,4 +223,4 @@ def send_email():
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    app.run(host='0.0.0.0', port=3000, debug=False)
+    app.run()
