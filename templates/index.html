@@ -1,0 +1,305 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'flashes.html' %}
+<!-- hero section -->
+<div class="container">
+	<section class="section-hero row align-items-center">
+		<div class="col-lg-6">
+			<div class="row">
+				<div class="col-lg-10 col-md-12 order-lg-2 p-0 mb-2">
+					<img
+						class="main-image"
+						src="https://images.unsplash.com/photo-1473188588951-666fce8e7c68?q=80&w=2774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+						alt="Main Image"
+					/>
+				</div>
+
+				<div class="col-lg-2 col-md-12 ps-0 mb-sm-3">
+					<div class="d-flex flex-lg-column gap-2">
+						<img
+							class="small-image hover-zoom"
+							src="https://images.unsplash.com/photo-1473188588951-666fce8e7c68?q=80&w=2774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+							alt="Image 1"
+						/>
+						<img
+							class="small-image"
+							src="https://images.unsplash.com/photo-1473188588951-666fce8e7c68?q=80&w=2774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+							alt="Image 2"
+						/>
+						<img
+							class="small-image"
+							src="https://images.unsplash.com/photo-1473188588951-666fce8e7c68?q=80&w=2774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+							alt="Image 3"
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6">
+			<div class="text-lg-start text-uppercase">Category</div>
+			<h1 class="display-5">Premium Leather</h1>
+			<p class="text-md-start">
+				Elevate your style with our exquisite leather bag, handcrafted to
+				perfection for the modern individual. Made from the finest, full-grain
+				leather, this bag exudes timeless elegance and sophistication
+			</p>
+			<div class="display-6 fw-bolder">$99.99</div>
+			<hr class="horizontal-line" />
+			<button class="btn btn-default btn-outline-dark text-uppercase">
+				<i class="bi bi-cart"></i> Add to Cart
+			</button>
+		</div>
+	</section>
+</div>
+
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-md-6 text-center">
+			<h2 class="display-6">Product Information</h2>
+			<p class="text-md-center">View details about our product below:</p>
+			<div class="btn-group d-flex gap-2" role="group">
+				<button type="button" class="btn btn-dark rounded-0">
+					View Features
+				</button>
+				<button type="button" class="btn btn-dark rounded-0">
+					View Specifications
+				</button>
+				<button type="button" class="btn btn-dark rounded-0">
+					View Reviews
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Product details section -->
+<section class="bg-body-tertiary p-3 mb-5">
+	<div class="container">
+		<h2 class="product-title display-6">
+			A Masterpiece of Leather Craftsmanship
+		</h2>
+		<p class="product-description">
+			Elevate your style with our exquisite leather bag, handcrafted to
+			perfection for the modern individual. Made from the finest, full-grain
+			leather, this bag exudes timeless elegance and sophistication
+		</p>
+		<div class="product-features">
+			<h4 class="feature-title">Features:</h4>
+			<ul>
+				<li>
+					Durable and supple leather for a luxurious feel and long-lasting
+					durability
+				</li>
+				<li>
+					Classic design with clean lines and minimalistic accents for a
+					versatile look
+				</li>
+				<li>Spacious interior with multiple pockets for organized storage</li>
+				<li>Secure magnetic closure for added security</li>
+			</ul>
+			<h4 class="feature-title">Dimensions:</h4>
+			<ul>
+				<li>Length: [insert length]</li>
+				<li>Width: [insert width]</li>
+				<li>Height: [insert height]</li>
+			</ul>
+			<p class="product-text">
+				Invest in a bag that will only get better with time. Order your [Bag
+				Name] today!
+			</p>
+		</div>
+	</div>
+</section>
+
+<!-- similar products section -->
+<div class="container">
+	<h2 class="display-6 text-center mb-4">Similar Products</h2>
+	<section
+		class="d-flex justify-content-center flex-wrap gap-4 mb-5"
+		id="similar"
+	>
+		<div class="card rounded-1 sale">
+			<img
+				src="https://images.unsplash.com/photo-1473188588951-666fce8e7c68?q=80&w=2774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+				class="card-img-top"
+				alt="..."
+			/>
+			<div class="d-flex justify-content-between flex-column card-body">
+				<div>
+					<div class="d-flex justify-content-between align-items-center top">
+						<h5 class="card-title m-0 p-0">Card title</h5>
+						<p class="fw-bolder m-0 p-0">$99.99</p>
+					</div>
+					<p class="card-text mt-2 mb-4">
+						<span class="stars">⭐️⭐️⭐️⭐️⭐️ (12)</span>
+					</p>
+				</div>
+				<button
+					href="#"
+					class="btn align-self-start cart-btn btn-outline-dark btn-default"
+				>
+					<i class="bi bi-cart"></i> Add to cart
+				</button>
+			</div>
+		</div>
+		<div class="card rounded-1">
+			<img
+				src="https://images.unsplash.com/photo-1473188588951-666fce8e7c68?q=80&w=2774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+				class="card-img-top"
+				alt="..."
+			/>
+			<div class="d-flex justify-content-between flex-column card-body">
+				<div>
+					<div class="d-flex justify-content-between align-items-center top">
+						<h5 class="card-title m-0 p-0">Card title</h5>
+						<p class="fw-bolder m-0 p-0">$99.99</p>
+					</div>
+					<p class="card-text mt-2 mb-4">
+						<span class="stars">⭐️⭐️⭐️⭐️⭐️ (12)</span>
+					</p>
+				</div>
+				<button
+					href="#"
+					class="btn align-self-start cart-btn btn-outline-dark btn-default"
+				>
+					<i class="bi bi-cart"></i> Add to cart
+				</button>
+			</div>
+		</div>
+		<div class="card rounded-1 sale">
+			<img
+				src="https://images.unsplash.com/photo-1473188588951-666fce8e7c68?q=80&w=2774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+				class="card-img-top"
+				alt="..."
+			/>
+			<div class="d-flex justify-content-between flex-column card-body">
+				<div>
+					<div class="d-flex justify-content-between align-items-center top">
+						<h5 class="card-title m-0 p-0">Card title</h5>
+						<p class="fw-bolder m-0 p-0">$99.99</p>
+					</div>
+					<p class="card-text mt-2 mb-4">
+						<span class="stars">⭐️⭐️⭐️⭐️⭐️ (12)</span>
+					</p>
+				</div>
+				<button
+					href="#"
+					class="btn align-self-start cart-btn btn-outline-dark btn-default"
+				>
+					<i class="bi bi-cart"></i> Add to cart
+				</button>
+			</div>
+		</div>
+		<div class="card rounded-1 new">
+			<img
+				src="https://images.unsplash.com/photo-1473188588951-666fce8e7c68?q=80&w=2774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+				class="card-img-top"
+				alt="..."
+			/>
+			<div class="d-flex justify-content-between flex-column card-body">
+				<div>
+					<div class="d-flex justify-content-between align-items-center top">
+						<h5 class="card-title m-0 p-0">Card title</h5>
+						<p class="fw-bolder m-0 p-0">$99.99</p>
+					</div>
+					<p class="card-text mt-2 mb-4">
+						<span class="stars">⭐️⭐️⭐️⭐️⭐️ (12)</span>
+					</p>
+				</div>
+				<button
+					href="#"
+					class="btn align-self-start cart-btn btn-outline-dark btn-default"
+				>
+					<i class="bi bi-cart"></i> Add to cart
+				</button>
+			</div>
+		</div>
+	</section>
+</div>
+<!-- Services section -->
+<section class="services-section bg-light">
+	<div class="container services my-5">
+		<div class="service-card d-flex align-items-center gap-2">
+			<i class="bi bi-globe2"></i>
+			<div class="service-info">
+				<h4 class="service-title text-uppercase m-0">Fast Shipping</h4>
+				<p class="service-description m-0">
+					We offer fast and secure shipping on all orders
+				</p>
+			</div>
+		</div>
+		<div class="service-card d-flex align-items-center gap-2">
+			<i class="bi bi-arrow-counterclockwise"></i>
+			<div class="service-info">
+				<h4 class="service-title text-uppercase m-0">Free Returns</h4>
+				<p class="service-description m-0">
+					Not satisfied with your purchase? We offer free returns
+				</p>
+			</div>
+		</div>
+		<div class="service-card d-flex align-items-center gap-2">
+			<i class="bi bi-clock"></i>
+			<div class="service-info">
+				<h4 class="service-title text-uppercase m-0">24/7 Customer Service</h4>
+				<p class="service-description m-0">
+					Availablet team, 24 hours a day, 7 days a week
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Review section -->
+<h2 class="display-6 text-center mb-4">Your review:</h2>
+<section class="review-section wrapper mb-5 mx-auto">
+	<div class="container">
+		<form action="{{ url_for('send_email') }}" method="post">
+			<div class="row mb-2">
+				<div class="col-md-6 mb-2">
+					<input
+						type="text"
+						placeholder="Enter your name"
+						name="name"
+						class="review-name form-control p-4"
+					/>
+				</div>
+				<div class="col-md-6">
+					<input
+						type="email"
+						placeholder="Enter your email"
+						name="email"
+						class="review-email form-control p-4"
+					/>
+				</div>
+			</div>
+			<div class="row mb-2">
+				<div class="col-md-6 mb-2">
+					<input
+						type="number"
+						placeholder="Phone"
+						name="number"
+						class="review-number form-control p-4"
+					/>
+				</div>
+				<div class="col-md-6">
+					<input
+						type="text"
+						placeholder="Subject"
+						name="subject"
+						class="review-subject form-control p-4"
+					/>
+				</div>
+			</div>
+			<textarea
+				name="comment"
+				class="review-textarea form-control mb-4 p-4"
+				placeholder="Write a message"
+			></textarea>
+			<div class="text-center">
+				<button class="btn btn-dark btn-lg">Send a message</button>
+			</div>
+		</form>
+	</div>
+</section>
+
+{% include 'footer.html' %} {% endblock %}

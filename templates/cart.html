@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'flashes.html' %}
+<div class="container mt-5 mb-5">
+	<div class="row mb-3">
+		<div class="col-md-12">
+			<h2 class="display-6">Checkout</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">Product</th>
+						<th scope="col">Price</th>
+						<th scope="col">Qty</th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for product in cart_items: %}
+						<tr>
+							<td>
+								<div class="item-info">
+									<img
+										src="{{ product.image }}"
+										alt="Item 1"
+										width="100"
+										height="100"
+										style="object-fit: cover"
+									/>
+									<span class="fw-semibold">{{ product.title }}</span>
+								</div>
+							</td>
+							<td class="align-middle">R {{ product.price }}</td>
+							<td class="align-middle">
+								<div class="quantity d-flex align-items-center">
+									<a
+										class="btn rounded-0 border-0"
+										href="{{ url_for('change_quantity', idx=product.id, action='decrease') }}"
+									>
+										-
+									</a>
+									<input
+										type="text"
+										value="{{product.quantity}}"
+										class="text-center"
+										style="width: 40px"
+									/>
+									<a
+										class="btn rounded-0 border-0"
+										href="{{ url_for('change_quantity', idx=product.id, action='increase') }}"
+									>
+										+
+									</a>
+								</div>
+							</td>
+							<td class="align-middle">
+								<a class="text-dark" href="{{ url_for('delete_cart_item', idx=product.id) }}">
+									<i class="bi bi-x"></i>
+								</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="summary text-right mb-3">
+				<h5>Summary</h5>
+				<p class="m-0">Subtotal: R {{ subtotal }}</p>
+				<p class="m-0">Delivery: R {{ delivery }}</p>
+				<p class="m-0">Total: R {{ total }}</p>
+			</div>
+			<div class="d-flex justify-content-between">
+				<a
+					class="btn btn-outline-dark rounded-0"
+					href="{{ url_for('products') }}"
+				>
+					Go Back to Products
+				</a>
+				<a class="btn btn-outline-dark rounded-0"> Process to Checkout </a>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% include 'footer.html' %} {% endblock %}

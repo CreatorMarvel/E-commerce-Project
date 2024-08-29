@@ -1,0 +1,22 @@
+{% for product in results: %}
+	<div class="card rounded-1" style="width: 16rem">
+		<img src="{{ product.image }}" class="card-img-top" alt="..." />
+		<div class="d-flex justify-content-between flex-column card-body">
+			<div>
+				<div class="d-flex justify-content-between align-items-center top">
+					<h5 class="card-title m-0 p-0">{{ product.title }}</h5>
+					<p class="fw-bolder m-0 p-0">${{ product.price }}</p>
+				</div>
+				<p class="card-text mt-2 mb-4">
+					<span class="stars">⭐️⭐️⭐️⭐️⭐️ (12)</span>
+				</p>
+			</div>
+			<button
+				href="#"
+				class="btn align-self-start cart-btn btn-outline-dark btn-default"
+			>
+				<i class="bi bi-cart"></i> Add to cart
+			</button>
+		</div>
+	</div>
+{% endfor %}

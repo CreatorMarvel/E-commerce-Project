@@ -1,0 +1,269 @@
+/* #################################################################### */
+/* Global Styles */
+/* #################################################################### */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Poppins", sans-serif;
+	color: #444;
+	transition: all 0.3s;
+	position: relative;
+}
+
+/* #################################################################### */
+/* Header Styles */
+/* #################################################################### */
+
+.header-cart-icon {
+	position: relative;
+}
+
+.header-cart-icon div {
+	background-color: red;
+	width: 20px;
+	height: 20px;
+	padding: 0.4rem;
+	border-radius: 50%;
+	color: #fff;
+	font-weight: 500;
+	font-size: 0.7rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: -8px;
+	right: -11px;
+}
+
+.cart-icon {
+	width: 25px;
+	height: 25px;
+}
+
+.navbar-brand {
+	font-family: monospace;
+}
+
+.login-btns {
+	border-left: 2px solid gray;
+	padding-left: 10px;
+}
+
+.btn-default {
+	border-radius: 50px;
+}
+
+/* #################################################################### */
+/* Hero Section Styles */
+/* #################################################################### */
+.section-hero {
+	margin: 6rem 0;
+}
+
+.heading-secondary {
+	margin: 0;
+}
+
+.color {
+	width: 24px;
+	height: 24px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.main-image {
+	width: 100%;
+	height: 500px;
+	object-fit: cover;
+}
+
+.small-image {
+	max-width: 100px;
+	height: 100px;
+	object-fit: cover;
+	transition: all 0.3s;
+	cursor: pointer;
+}
+
+.small-image:hover {
+	transform: scale(1.1);
+}
+
+.hover-image {
+	cursor: pointer;
+}
+
+.hover-image:hover {
+	transform: scale(1.1);
+}
+
+.cart-btn {
+	justify-self: end;
+}
+
+/* #################################################################### */
+/* Login , Register Section Styles */
+/* #################################################################### */
+
+.login-form {
+	width: 40%;
+	min-width: 300px;
+	margin: auto;
+	box-shadow: 0 0 24px rgba(0, 0, 0, 0.1);
+	input[type="password"],
+	input[type="email"] {
+		width: 100%;
+	}
+}
+
+.login-icon {
+	width: 100px;
+	height: 100px;
+}
+
+/* #################################################################### */
+/* Products Section Styles */
+/* #################################################################### */
+.search-icon {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.card-img-top {
+	height: 200px;
+	object-fit: cover;
+}
+
+.card {
+	transition: all 0.3s;
+	width: 16rem;
+	cursor: pointer;
+
+	.card-title {
+		font-size: 1rem;
+	}
+}
+
+@media (max-width: 760px) {
+	.card {
+		width: 14rem;
+	}
+}
+
+.card:hover {
+	box-shadow: 0 0 24px rgba(0, 0, 0, 0.1);
+}
+
+.sale::after,
+.new::after {
+	padding: 0.4rem;
+	color: #fff;
+	font-weight: 500;
+	font-size: 0.8rem;
+	top: -18px;
+	right: -18px;
+	position: absolute;
+}
+
+.sale::after {
+	content: "SALE";
+	background-color: #174a21;
+}
+
+.new::after {
+	content: "NEW";
+	background-color: red;
+}
+
+.filter-products-container {
+	display: grid;
+	grid-template-columns: 200px 1fr;
+	height: 100vh;
+
+	@media (max-width: 1000px) {
+		grid-template-columns: 1fr;
+		.filter-section {
+			display: none;
+		}
+	}
+
+	.filter-section {
+		position: sticky;
+		top: 0;
+		left: 0;
+		height: 100vh;
+		overflow-y: auto;
+		padding: 20px;
+		border-right: 1px solid #ddd;
+	}
+
+	.product-section {
+		flex-grow: 1;
+		overflow-y: auto;
+		min-height: 100px;
+
+		.heading-search-section {
+			padding: 10px;
+			border-bottom: 1px solid #ddd;
+			background-color: #f1f3f5;
+			position: sticky;
+			top: 0;
+			z-index: 1;
+			margin-bottom: 20px;
+		}
+	}
+}
+
+/* #################################################################### */
+/* Services Section Styles */
+/* #################################################################### */
+.service-icon {
+	width: 3rem;
+	height: 3rem;
+}
+
+.services {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	column-gap: 1rem;
+	align-content: center;
+	justify-items: center;
+	padding: 1.2rem;
+
+	@media (max-width: 760px) {
+		grid-template-columns: 1fr;
+		justify-items: flex-start;
+		width: 80%;
+		margin: auto;
+	}
+
+	.service-card {
+		.service-info {
+			.service-title {
+				font-size: 0.8rem;
+			}
+
+			.service-description {
+				font-size: 0.6rem;
+			}
+		}
+	}
+}
+/* #################################################################### */
+/* Review Section Styles */
+/* #################################################################### */
+.review-section {
+	width: 50%;
+}
+
+@media (max-width: 760px) {
+	.review-section {
+		width: 80%;
+	}
+}
