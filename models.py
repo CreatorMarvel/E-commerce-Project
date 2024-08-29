@@ -39,12 +39,14 @@ class Cart(db.Model):
     image: Mapped[str] = mapped_column(String)
     quantity: Mapped[int] = mapped_column(Integer)
     price: Mapped[float] = mapped_column(Float)
+    brand: Mapped[str] = mapped_column(String)
 
-    def __int__(self, title, image, quantity, price):
+    def __int__(self, title, image, quantity, price, brand):
         self.title = title
         self.image = image
         self.quantity = quantity
         self.price = price
+        self.brand = brand
 
     def __repr__(self):
         return f'<Item: {self.title}>'

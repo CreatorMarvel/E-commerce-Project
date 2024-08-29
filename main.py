@@ -142,28 +142,30 @@ def cart():
                            subtotal=round(calculate_total().get('subtotal'), 2))
 
 
-@app.route('/add-cart/<int:idx>', methods=['GET', 'POST'])
-def add_product_to_cart(idx):
-    product = db.session.execute(db.select(Cart).where(Cart.id == idx)).scalar()
-    if product:
-        product.quantity += 1
-        db.session.commit()
-        flash('Product  added to cart!')
-        return redirect(url_for('products'))
+@app.route('/add-cart/<string:identifier>', methods=['GET', 'POST'])
+def add_product_to_cart(identifier):
+    """ Get the index of product on click and adds it to the cart dbs. Used title to identify """
 
-    item = db.session.execute(db.select(Products).where(Products.id == idx)).scalar()
-    print(item.title)
-    if item:
+    product = db.session.execute(db.select(Cart).where(Cart.title == identifier)).scalar()
+    if product:
         try:
-            new_item = Cart(title=item.title, image=item.image, quantity=1, price=item.price)
-            db.session.add(new_item)
+            product.quantity += 1
             db.session.commit()
-            flash('Product  added to cart!')
-            return redirect(url_for('products'))
         except Exception as e:
             return str(e)
+        else:
+            flash('Product added to cart!')
+            return redirect(url_for('products'))
+
+    item = db.session.execute(db.select(Products).where(Products.title == identifier)).scalar()
+    try:
+        new_item = Cart(title=item.title, image=item.image, quantity=1, price=item.price, brand=item.brand)
+        db.session.add(new_item)
+        db.session.commit()
+    except Exception as e:
+        return str(e)
     else:
-        flash('Product  doesnt exist!')
+        flash('Product added to cart!')
         return redirect(url_for('products'))
 
 
@@ -175,7 +177,8 @@ def page_not_found(e):
 
 @app.route('/delete-cart/<int:idx>')
 def delete_cart_item(idx):
-    print(idx)
+    """ Delete the item from the cart """
+
     product = db.session.execute(db.select(Cart).where(Cart.id == idx)).scalar()
     db.session.delete(product)
     db.session.commit()
@@ -183,16 +186,33 @@ def delete_cart_item(idx):
     return redirect(url_for('cart'))
 
 
+@app.route('/quantity/<int:idx>', methods=['POST'])
+def set_quantity(idx):
+    """ Set the quantity of item, from the input value """
+    
+    product = db.session.execute(db.select(Cart).where(Cart.id == idx)).scalar()
+    if request.method == 'POST':
+        product.quantity = request.form.get('cart-item-input')
+        flash('Product  edited!')
+        db.session.commit()
+        return redirect(url_for('cart'))
+
+
 @app.route('/decrease-increase/<int:idx>/<string:action>')
 def change_quantity(idx, action):
+    """ Increases and decrease the quantity of the item in cart with button click """
     product = db.session.execute(db.select(Cart).where(Cart.id == idx)).scalar()
     if action == 'decrease':
         product.quantity -= 1
     else:
         product.quantity += 1
-    flash('Product  edited!')
-    db.session.commit()
-    return redirect(url_for('cart'))
+
+    if product.quantity < 1:
+        return redirect(url_for('delete_cart_item', idx=idx))
+    else:
+        flash('Product  edited!')
+        db.session.commit()
+        return redirect(url_for('cart'))
 
 
 @app.route('/send', methods=['POST'])
@@ -222,4 +242,4 @@ def send_email():
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    app.run()
+    app.run(debug=True)
