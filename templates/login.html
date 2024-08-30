@@ -19,7 +19,7 @@
 	</svg>
 	<p class="display-5">Member Login</p>
 </div>
-<form method="post" action="/login" class="login-form p-2">
+<form method="post" action="/login" class="login-form p-2 mb-4">
 	<div class="form-group mb-2">
 		<label for="exampleInputEmail1">Email address </label>
 		<input
@@ -53,4 +53,4 @@
 	<button type="submit" class="btn btn-dark rounded-0">Submit</button>
 	<p>Not a member? <a href="{{ url_for('register') }}">Sign up now</a></p>
 </form>
-{% include 'fixed-footer.html' %} {% endblock %}
+{% include 'footer.html' %} {% endblock %}

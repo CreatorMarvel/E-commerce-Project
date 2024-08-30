@@ -139,7 +139,9 @@ def cart():
                            cart_items=calculate_total().get('cart_items'),
                            total=round(calculate_total().get('total'), 2),
                            delivery=round(calculate_total().get('delivery'), 2),
-                           subtotal=round(calculate_total().get('subtotal'), 2))
+                           subtotal=round(calculate_total().get('subtotal'), 2),
+                           is_authenticated=current_user.is_authenticated
+                           )
 
 
 @app.route('/add-cart/<string:identifier>', methods=['GET', 'POST'])
@@ -175,6 +177,12 @@ def page_not_found(e):
     return render_template('404.html'), 404
 
 
+@app.route('/contact')
+def contact():
+    """ Render the contact me form page """
+    return render_template('contact.html', is_authenticated=current_user.is_authenticated, carts=calculate_total().get('carts'))
+
+
 @app.route('/delete-cart/<int:idx>')
 def delete_cart_item(idx):
     """ Delete the item from the cart """
@@ -189,7 +197,7 @@ def delete_cart_item(idx):
 @app.route('/quantity/<int:idx>', methods=['POST'])
 def set_quantity(idx):
     """ Set the quantity of item, from the input value """
-    
+
     product = db.session.execute(db.select(Cart).where(Cart.id == idx)).scalar()
     if request.method == 'POST':
         product.quantity = request.form.get('cart-item-input')
@@ -215,13 +223,16 @@ def change_quantity(idx, action):
         return redirect(url_for('cart'))
 
 
-@app.route('/send', methods=['POST'])
-def send_email():
+@app.route('/send/<string:msg_type>', methods=['POST'])
+def send_email(msg_type):
     user_email = request.form.get('email')
     user_name = request.form.get('name')
-    user_phone = request.form.get('phone')
+    user_phone = request.form.get('number')
     subject = request.form.get('subject')
     user_message = request.form.get('comment')
+
+    if msg_type == 'message':
+        subject = 'Contact me message!'
 
     with smtplib.SMTP('smtp.gmail.com') as connection:
         connection.starttls()
@@ -232,7 +243,7 @@ def send_email():
         connection.sendmail(
             to_addrs=os.environ.get('EMAIL_USERNAME'),
             from_addr=os.environ.get('EMAIL_USERNAME'),
-            msg=f'Subject:Public website Review - "{subject}"\n\nFrom:{user_name}\nEmail:{user_email}\nPhone:{user_phone}\nMessage:{user_message}'.encode(
+            msg=f'Subject:{subject}\n\nFrom:{user_name}\nEmail:{user_email}\nPhone:{user_phone}\nMessage:{user_message}'.encode(
                 'utf-8')
         )
     flash('Message successfully sent!')

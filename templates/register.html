@@ -19,7 +19,7 @@
 	<p class="display-6">Sign Up</p>
 </div>
 
-<form action="/register" method="post" class="login-form p-2 mb-5">
+<form action="/register" method="post" class="login-form p-2 mb-4">
 	<div class="form-group mb-2">
 		<label for="exampleInputEmail1">Email address </label>
 		<input
@@ -64,6 +64,4 @@
 	<p>Already a member? <a href="{{ url_for('login') }}">Login now</a></p>
 </form>
 
-<div class="d-none d-md-block" style="height: 20px; margin-bottom: 100px"></div>
-
-{% include 'fixed-footer.html' %} {% endblock %}
+{% include 'footer.html' %} {% endblock %}
