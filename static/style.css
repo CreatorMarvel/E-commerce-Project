@@ -296,15 +296,15 @@ body {
 /* Contact Section Styles */
 /* #################################################################### */
 .contact-display {
-    height: 60vh;
-    background-image: url('https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51?q=80&w=2810&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 0 -920px;
-    margin-bottom: 24px
+	height: 60vh;
+	background-image: url("../static/images/call.avif");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 0 -920px;
+	margin-bottom: 24px;
 }
 
 .contact-form {
-    box-shadow: none;
-    margin-bottom: 40px;
+	box-shadow: none;
+	margin-bottom: 40px;
 }

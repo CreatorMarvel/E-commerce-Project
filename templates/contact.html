@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Contact{% endblock %}
+{% block content %}
+<div class="contact-display"></div>
+<p class="display-6 text-center">Let's start a conversation</p>
+
+<form
+	method="post"
+	action="{{ url_for('send_email', msg_type='message') }}"
+	class="login-form contact-form d-flex flex-column gap-3"
+>
+	<input
+		type="text"
+		name="name"
+		class="form-control py-4"
+		placeholder="Name..."
+	/>
+	<input
+		type="email"
+		name="email"
+		class="form-control py-4"
+		placeholder="Email..."
+	/>
+	<textarea
+		placeholder="Message..."
+		name="comment"
+		class="form-control"
+		rows="4"
+	></textarea>
+	<button type="submit" class="btn btn-dark text-light py-3">
+		Send Message
+	</button>
+</form>
+{% include 'footer.html' %} {% endblock %}
