@@ -180,7 +180,8 @@ def page_not_found(e):
 @app.route('/contact')
 def contact():
     """ Render the contact me form page """
-    return render_template('contact.html', is_authenticated=current_user.is_authenticated, carts=calculate_total().get('carts'))
+    return render_template('contact.html', is_authenticated=current_user.is_authenticated,
+                           carts=calculate_total().get('carts'))
 
 
 @app.route('/delete-cart/<int:idx>')
@@ -248,6 +249,11 @@ def send_email(msg_type):
         )
     flash('Message successfully sent!')
     return redirect(url_for('index'))
+
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 
 if __name__ == '__main__':

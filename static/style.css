@@ -300,11 +300,40 @@ body {
 	background-image: url("../static/images/call.avif");
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-position: 0 -920px;
+	background-position: center;
+	overflow: hidden;
 	margin-bottom: 24px;
 }
 
 .contact-form {
 	box-shadow: none;
 	margin-bottom: 40px;
+}
+
+/* #################################################################### */
+/* About Section Styles */
+/* #################################################################### */
+.about-display {
+	height: 50vh;
+	width: 100%;
+	background-image: url("https://images.unsplash.com/photo-1719153863464-b2ee7e28b6df?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	position: relative;
+
+	&::after {
+		content: "About us";
+		color: #fff;
+		font-size: 3rem;
+		font-weight: 500;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+
+.about-content {
+	margin: 4.5rem 0;
 }
