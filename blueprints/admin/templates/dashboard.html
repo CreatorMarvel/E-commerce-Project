@@ -13,26 +13,30 @@
 		</tr>
 	</thead>
 	<tbody>
-		{% for product in products: %}
-			<tr>
-				<td>
-					<img class="item-img" src="{{ product.image }}" alt="" />
-				</td>
-				<td class="fs-6">{{ product.title }}</td>
-				<td>{{ product.description }}</td>
-				<td>${{ product.price }}</td>
-				<td>{{ product.category }}</td>
-				<td class="rating">
-					<p>Rate: {{ product.rating.rate }}</p>
-					<p>Count: {{ product.rating.count }}</p>
-				</td>
-				<td>
-					<a href="{{ url_for('admin.delete_product', idx=product.id) }}">
-						<i class="bi bi-x-circle"></i>
-					</a>
-				</td>
-			</tr>
-		{% endfor %}
+		{% if products: %}
+			{% for product in products: %}
+				<tr>
+					<td>
+						<img class="item-img" src="{{ product.image }}" alt="" />
+					</td>
+					<td class="fs-6">{{ product.title }}</td>
+					<td>{{ product.description }}</td>
+					<td>${{ product.price }}</td>
+					<td>{{ product.category }}</td>
+					<td class="rating">
+						<p>Rate: {{ product.rating.rate }}</p>
+						<p>Count: {{ product.rating.count }}</p>
+					</td>
+					<td>
+						<a href="{{ url_for('admin.delete_product', idx=product.id) }}">
+							<i class="bi bi-x-circle"></i>
+						</a>
+					</td>
+				</tr>
+			{% endfor %}
+		{% else: %}
+			<p>No products. Add new products</p>
+		{% endif %}
 	</tbody>
 </table>
 {% endblock %}

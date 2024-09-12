@@ -9,11 +9,11 @@ class Admin(db.Model, UserMixin):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     password: Mapped[str] = mapped_column(String, nullable=False)
-    email: Mapped[str] = mapped_column(String, nullable=False)
+    username: Mapped[str] = mapped_column(String, nullable=False)
 
-    def __init__(self, password, email):
+    def __init__(self, password, username):
         self.password = password
-        self.email = email
+        self.username = username
 
 
 class User(db.Model, UserMixin):

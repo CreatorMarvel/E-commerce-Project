@@ -5,6 +5,7 @@ from flask_wtf import FlaskForm
 from wtforms.validators import DataRequired
 from wtforms import SubmitField, StringField, FloatField, IntegerField
 from flask_login import login_required, login_user
+from config import bcrypt
 
 admin = Blueprint('admin', __name__, template_folder='templates', static_folder='static')
 
@@ -39,9 +40,11 @@ def index():
             flash('Please enter all fields!')
             return redirect(url_for('admin.index'))
         else:
-            user = db.session.execute(db.select(Admin).where(Admin.email == admin_username)).scalar()
+
+            user = db.session.execute(db.select(Admin).where(Admin.username == admin_username)).scalar()
+
             if user:
-                if user.email == admin_username and user.password == admin_password:
+                if user.username == admin_username and bcrypt.check_password_hash(user.password, admin_password):
                     login_user(user)
                     flash('Successfully logged in!')
                     return redirect(url_for('admin.dashboard'))
@@ -55,7 +58,7 @@ def index():
 
 
 @admin.route('/dashboard')
-@login_required
+# @login_required
 def dashboard():
     all_products = Products.query.all()
     return render_template('dashboard.html', products=all_products)
