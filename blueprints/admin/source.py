@@ -46,7 +46,6 @@ def index():
             if user:
                 if user.username == admin_username and bcrypt.check_password_hash(user.password, admin_password):
                     login_user(user)
-                    flash('Successfully logged in!')
                     return redirect(url_for('admin.dashboard'))
                 else:
                     flash('Invalid credentials. Please enter correct email or password!')
@@ -58,7 +57,6 @@ def index():
 
 
 @admin.route('/dashboard')
-# @login_required
 def dashboard():
     all_products = Products.query.all()
     return render_template('dashboard.html', products=all_products)

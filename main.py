@@ -187,7 +187,6 @@ def contact():
 @app.route('/delete-cart/<int:idx>')
 def delete_cart_item(idx):
     """ Delete the item from the cart """
-
     product = db.session.execute(db.select(Cart).where(Cart.id == idx)).scalar()
     db.session.delete(product)
     db.session.commit()
@@ -198,7 +197,6 @@ def delete_cart_item(idx):
 @app.route('/quantity/<int:idx>', methods=['POST'])
 def set_quantity(idx):
     """ Set the quantity of item, from the input value """
-
     product = db.session.execute(db.select(Cart).where(Cart.id == idx)).scalar()
     if request.method == 'POST':
         product.quantity = request.form.get('cart-item-input')
